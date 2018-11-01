@@ -1,0 +1,15 @@
+{
+  "name": "hprose/beytagh_hprose",
+  "description": "hprose test",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "author's name",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+    "hprose/hprose": "v2.0.35"
+  }
+}

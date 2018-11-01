@@ -1,0 +1,13 @@
+#!/usr/bin/env php
+<?php
+
+defined('DEBUG') or define('DEBUG', false);
+defined('PATH') or define('PATH', __DIR__);
+
+require(__DIR__ . '/vendor/autoload.php');
+require(__DIR__ . '/core/init.php');
+$config = require(__DIR__ . '/common/config/main.php');
+
+
+$app = new core\Application($config);
+$exitCode = $app->run();
