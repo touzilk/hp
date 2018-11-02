@@ -2,6 +2,7 @@
 
 namespace core;
 
+use Core;
 use core\Request;
 use ReflectionClass;
 
@@ -25,6 +26,7 @@ class Application
      */
     public function __construct($config = [])
     {
+        Core::$app = $this;
         $this->_request = new Request();
         $config = $this->loadConfig($config);
         $this->preInit($config);
@@ -50,10 +52,28 @@ class Application
     {
         if (!isset($config['id'])) {
             throw new \Exception('The "id" configuration for the Application is required.');
+        }else{
+            Core::$app->id = trim($config['id']);
         }
 
         if (isset($config['controllerNamespace'])) {
             $this->_controllerNamespace = trim($config['controllerNamespace']);
+        }
+
+        if (isset($config['basePath'])) {
+            Core::$app->basePath = trim($config['basePath']);
+        }
+
+        if (isset($config['db'])) {
+
+            if(is_array($config['db'])){
+                $db = $config['db'];
+                if(!isset($db['class'])){
+                    throw new  \ErrorException('db 必须包含 classs属性');
+                }
+                Core::$app->db = new  $db['class']($db);
+            }
+
         }
     }
 
@@ -68,7 +88,6 @@ class Application
             list ($route, $params) = $this->_request->resolve();
 
             $result =  $this->runAction($route, $params);
-            var_dump($result);die;
 
             /*
              * web 方式解析
@@ -110,21 +129,10 @@ class Application
             $route = '';
         }
 
-        $obj = $this->getRelation($id);
+        $className = "{$this->_controllerNamespace}\\{$id}";
+        $obj = new $className();
         return call_user_func_array([$obj, $route], $params);
 
-    }
-
-    /**
-     * 获取关联对象
-     * @param $name
-     * @return object
-     * @throws \ReflectionException
-     */
-    public function getRelation($name)
-    {
-        $class = new  \ReflectionClass("controllers\\{$name}");
-        return $class->newInstance();
     }
 
     /**

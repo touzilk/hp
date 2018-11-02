@@ -10,6 +10,7 @@
     }
   ],
   "require": {
-    "hprose/hprose": "v2.0.35"
+    "hprose/hprose": "v2.0.35",
+    "catfan/medoo": "v1.6"
   }
 }

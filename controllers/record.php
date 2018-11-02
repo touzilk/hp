@@ -9,11 +9,14 @@
 namespace controllers;
 
 
+use Core;
+
 class record
 {
     function lists(){
 
-        return ['name'=>'live'];
+        $result =  Core::$app->db->select('user', '*');
+        var_dump($result);die;
 
     }
 }
