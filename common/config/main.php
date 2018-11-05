@@ -10,16 +10,22 @@ return [
     'id' => 'app-holter',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'controllers',
-    'db'=>[
+    'db' => [
         'class' => 'Medoo\Medoo',
         'database_type' => 'mysql',
-        'database_name' => 'holter_online',
-        'server' => 'ip',
+        'database_name' => 'holter',
+        'server' => 'IP',
         'username' => 'root',
         'password' => 'cloud@2016',
         'charset' => 'utf8',
         'port' => 3699,
         'prefix' => 'ho_',
     ],
+    'logger' => [
+        'class' => 'Monolog\Logger',
+        'handler' => 'Monolog\Handler\StreamHandler'
+    ],
+    'params' => [
+        'put_url' => 'http://106.3.133.117:93'
+    ],
 ];
-
