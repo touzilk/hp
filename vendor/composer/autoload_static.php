@@ -11,8 +11,13 @@ class ComposerStaticInit1b241f4cc1285e669b8b1b771663bcbc
     );
 
     public static $prefixLengthsPsr4 = array (
+        'P' => 
+        array (
+            'Psr\\Log\\' => 8,
+        ),
         'M' => 
         array (
+            'Monolog\\' => 8,
             'Medoo\\' => 6,
         ),
         'H' => 
@@ -22,6 +27,14 @@ class ComposerStaticInit1b241f4cc1285e669b8b1b771663bcbc
     );
 
     public static $prefixDirsPsr4 = array (
+        'Psr\\Log\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
+        ),
+        'Monolog\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
+        ),
         'Medoo\\' => 
         array (
             0 => __DIR__ . '/..' . '/catfan/medoo/src',
