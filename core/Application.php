@@ -4,7 +4,6 @@ namespace core;
 
 use Core;
 use core\Request;
-use ReflectionClass;
 
 class Application
 {
@@ -17,6 +16,7 @@ class Application
     private $_controllerNamespace = 'controllers';
 
     public static $classMap = [];
+    public $_components = [];
 
     /**
      * 构造函数
@@ -69,12 +69,42 @@ class Application
             if(is_array($config['db'])){
                 $db = $config['db'];
                 if(!isset($db['class'])){
-                    throw new  \ErrorException('db 必须包含 classs属性');
+                    throw new  \ErrorException('db 必须包含 class属性');
                 }
                 Core::$app->db = new  $db['class']($db);
+                $this->_components['db'] = $config['db'];
             }
 
         }
+        if (isset($config['logger'])) {
+            if (is_array($config['logger'])) {
+                $logger = $config['logger'];
+                if (!isset($logger['class'])) {
+                    throw new  \ErrorException('logger 必须包含 class属性');
+                }
+                Core::$app->logger = new  $logger['class']('app');
+                Core::$app->logger->pushHandler(new $logger['handler'](__DIR__ . '/logs/app.log'));
+            }
+        }
+        if (isset($config['params'])) {
+            if (is_array($config['params'])) {
+                Core::$app->params = $config['params'];
+            } else {
+                Core::$app->params = [];
+            }
+        }
+    }
+    /**
+     * db
+     * @return null
+     */
+    public function getDb()
+    {
+        if (isset($this->_components['db'])) {
+            $db = $this->_components['db']['db'];
+            return new  $db['class']($db);
+        }
+        return null;
     }
 
     /**
@@ -140,7 +170,8 @@ class Application
      * @param $className
      * @throws \Exception
      */
-    public static function autoload($className){
+    public static function autoload($className)
+    {
         if (isset(self::$classMap[$className])) {
             return;
         }
