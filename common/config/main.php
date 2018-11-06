@@ -14,7 +14,7 @@ return [
         'class' => 'Medoo\Medoo',
         'database_type' => 'mysql',
         'database_name' => 'holter',
-        'server' => '106.3.133.117',
+        'server' => '127.0.0.1',
         'username' => 'root',
         'password' => 'cloud@2016',
         'charset' => 'utf8',
