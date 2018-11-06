@@ -5,6 +5,12 @@ namespace core;
 use Core;
 use core\Request;
 
+/**
+ * Class Application
+ * @property \Medoo\Medoo $db The database connection. This property is read-only.
+ * @property \Monolog\Logger $logger The database connection. This property is read-only.
+ * @package core
+ */
 class Application
 {
 
@@ -16,7 +22,9 @@ class Application
     private $_controllerNamespace = 'controllers';
 
     public static $classMap = [];
-    public $_components = [];
+
+    private $_components = [];
+
 
     /**
      * 构造函数
@@ -52,7 +60,7 @@ class Application
     {
         if (!isset($config['id'])) {
             throw new \Exception('The "id" configuration for the Application is required.');
-        }else{
+        } else {
             Core::$app->id = trim($config['id']);
         }
 
@@ -66,9 +74,9 @@ class Application
 
         if (isset($config['db'])) {
 
-            if(is_array($config['db'])){
+            if (is_array($config['db'])) {
                 $db = $config['db'];
-                if(!isset($db['class'])){
+                if (!isset($db['class'])) {
                     throw new  \ErrorException('db 必须包含 class属性');
                 }
                 Core::$app->db = new  $db['class']($db);
@@ -76,7 +84,9 @@ class Application
             }
 
         }
+
         if (isset($config['logger'])) {
+
             if (is_array($config['logger'])) {
                 $logger = $config['logger'];
                 if (!isset($logger['class'])) {
@@ -85,15 +95,21 @@ class Application
                 Core::$app->logger = new  $logger['class']('app');
                 Core::$app->logger->pushHandler(new $logger['handler'](__DIR__ . '/logs/app.log'));
             }
+
         }
+
         if (isset($config['params'])) {
+
             if (is_array($config['params'])) {
                 Core::$app->params = $config['params'];
             } else {
                 Core::$app->params = [];
             }
+
         }
+
     }
+
     /**
      * db
      * @return null
@@ -101,11 +117,13 @@ class Application
     public function getDb()
     {
         if (isset($this->_components['db'])) {
-            $db = $this->_components['db']['db'];
-            return new  $db['class']($db);
+            $db = $this->_components['db'];
+            return Core::$app->db = new  $db['class']($db);
         }
+
         return null;
     }
+
 
     /**
      * run
@@ -117,7 +135,7 @@ class Application
 
             list ($route, $params) = $this->_request->resolve();
 
-            $result =  $this->runAction($route, $params);
+            $result = $this->runAction($route, $params);
 
             /*
              * web 方式解析

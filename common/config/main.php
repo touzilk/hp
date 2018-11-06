@@ -14,7 +14,7 @@ return [
         'class' => 'Medoo\Medoo',
         'database_type' => 'mysql',
         'database_name' => 'holter',
-        'server' => 'IP',
+        'server' => '106.3.133.117',
         'username' => 'root',
         'password' => 'cloud@2016',
         'charset' => 'utf8',
@@ -29,3 +29,4 @@ return [
         'put_url' => 'http://106.3.133.117:93'
     ],
 ];
+

@@ -61,6 +61,53 @@
         ]
     },
     {
+        "name": "fangstar/php-validator",
+        "version": "v1.0.1",
+        "version_normalized": "1.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/FangStarNet/php-validator.git",
+            "reference": "2a6b5230fe45d5e0a42feb1b75f751e8bd1b352b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/FangStarNet/php-validator/zipball/2a6b5230fe45d5e0a42feb1b75f751e8bd1b352b",
+            "reference": "2a6b5230fe45d5e0a42feb1b75f751e8bd1b352b",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.6.0"
+        },
+        "time": "2016-11-23T01:16:30+00:00",
+        "type": "project",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "FangStarNet\\PHPValidator\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Qvil Young",
+                "email": "yangqingwu@fangstar.net",
+                "homepage": "https://github.com/Qvil-Young",
+                "role": "Developer"
+            }
+        ],
+        "description": "PHP参数校验组件",
+        "homepage": "https://github.com/FangStarNet/php-validator",
+        "keywords": [
+            "Php Validator",
+            "fangstar",
+            "laravel",
+            "parameters"
+        ]
+    },
+    {
         "name": "hprose/hprose",
         "version": "v2.0.35",
         "version_normalized": "2.0.35.0",
@@ -144,17 +191,17 @@
     },
     {
         "name": "monolog/monolog",
-        "version": "1.24.0",
-        "version_normalized": "1.24.0.0",
+        "version": "1.23.0",
+        "version_normalized": "1.23.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/Seldaek/monolog.git",
-            "reference": "bfc9ebb28f97e7a24c45bdc3f0ff482e47bb0266"
+            "reference": "fd8c787753b3a2ad11bc60c063cff1358a32a3b4"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Seldaek/monolog/zipball/bfc9ebb28f97e7a24c45bdc3f0ff482e47bb0266",
-            "reference": "bfc9ebb28f97e7a24c45bdc3f0ff482e47bb0266",
+            "url": "https://api.github.com/repos/Seldaek/monolog/zipball/fd8c787753b3a2ad11bc60c063cff1358a32a3b4",
+            "reference": "fd8c787753b3a2ad11bc60c063cff1358a32a3b4",
             "shasum": ""
         },
         "require": {
@@ -190,7 +237,7 @@
             "ruflin/elastica": "Allow sending log messages to an Elastic Search server",
             "sentry/sentry": "Allow sending log messages to a Sentry server"
         },
-        "time": "2018-11-05T09:00:11+00:00",
+        "time": "2017-06-19T01:22:40+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {

@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-defined('DEBUG') or define('DEBUG', false);
+defined('HP_DEBUG') or define('HP_DEBUG', true);
 defined('PATH') or define('PATH', __DIR__);
 
 require(__DIR__ . '/vendor/autoload.php');

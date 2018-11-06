@@ -10,4 +10,5 @@ return array(
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
     'Medoo\\' => array($vendorDir . '/catfan/medoo/src'),
     'Hprose\\' => array($vendorDir . '/hprose/hprose/src/Hprose'),
+    'FangStarNet\\PHPValidator\\' => array($vendorDir . '/fangstar/php-validator'),
 );

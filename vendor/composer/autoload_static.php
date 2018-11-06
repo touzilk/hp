@@ -24,6 +24,10 @@ class ComposerStaticInit1b241f4cc1285e669b8b1b771663bcbc
         array (
             'Hprose\\' => 7,
         ),
+        'F' => 
+        array (
+            'FangStarNet\\PHPValidator\\' => 25,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -42,6 +46,10 @@ class ComposerStaticInit1b241f4cc1285e669b8b1b771663bcbc
         'Hprose\\' => 
         array (
             0 => __DIR__ . '/..' . '/hprose/hprose/src/Hprose',
+        ),
+        'FangStarNet\\PHPValidator\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/fangstar/php-validator',
         ),
     );
 

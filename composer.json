@@ -12,6 +12,7 @@
   "require": {
     "hprose/hprose": "v2.0.35",
     "catfan/medoo": "v1.6",
-    "monolog/monolog": "^1.24"
+    "fangstar/php-validator": "^1.0",
+    "monolog/monolog": "^1.23"
   }
 }

@@ -23,8 +23,9 @@ function throwError($name, $e)
 
 ;
 
-$result = $client->hello("beytagh", new InvokeSettings(array('mode' => ResultMode::Normal)));
-echo $result;
+$result = $client->check_exam(1, new InvokeSettings(array('mode' => ResultMode::Normal)));
+print_r($result);
+//echo $result;
 
 /* $client->subscribe('time', function ($date) {
      echo $date;
