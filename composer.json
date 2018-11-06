@@ -1,18 +1,20 @@
 {
-  "name": "hprose/beytagh_hprose",
+  "name": "hp/hp-framework",
   "description": "hprose test",
   "minimum-stability": "stable",
   "license": "proprietary",
   "authors": [
     {
-      "name": "author's name",
+      "name": "beytagh",
       "email": "email@example.com"
     }
   ],
   "require": {
+    "php": ">=5.6.0",
     "hprose/hprose": "v2.0.35",
     "catfan/medoo": "v1.6",
     "fangstar/php-validator": "^1.0",
     "monolog/monolog": "^1.23"
   }
 }
+
