@@ -50,7 +50,7 @@ class put
         $data = UIHelper::object_array($data);
         Validator::make($data, [
             "name" => "present|length_max:10",
-            "exam" => "present|num|length_between:5,20",
+            "exam" => "present|length_between:5,20",
             "age" => "present|num|length_max:3",
             "gender" => "present|num|in:1,2",
             "miscode" => "present|num",
@@ -58,7 +58,6 @@ class put
             "name.present" => "请输入姓名",
             "name.length_max" => "姓名最多为10位",
             "exam.present" => "请输入体检号",
-            "exam.num" => "体检号必须为数字",
             "exam.length_between" => "体检号必须为5位至20位",
             "age.present" => "请输入年龄",
             "age.num" => "年龄必须为数字",
